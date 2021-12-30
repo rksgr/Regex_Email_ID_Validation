@@ -16,9 +16,24 @@ public class EmailValidation {
         }
         return matchFound;
     }
+    /*
+    Use case 2: Validate Mandatory part 2 of email- bridgelabz after @
+    */
+    public static boolean validateEmailDomain(String test_email_id){
+        Pattern pattern = Pattern.compile("[a-z]{3,}[@][b][r][i][d][g][e][l][a][b][z][a-zA-Z~!@#$%^&*().]{1,}");
+        Matcher matcher = pattern.matcher(test_email_id);
+        Boolean matchFound = matcher.matches();
+        if (matchFound){
+            System.out.println("Correct Email.");
+        }else {
+            System.out.println("Incorrect Email.");
+        }
+        return matchFound;
+    }
+
     public static void main(String[] args) {
         System.out.println("Welcome to Bridgelabz!");
         System.out.println("Today we shall perform email ID validation.");
-        validateStartCharEmail("abc@bridgelabz.com");
+        validateEmailDomain("abc.23@bridgelabz.com");
     }
 }
