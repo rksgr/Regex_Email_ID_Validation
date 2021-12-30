@@ -58,10 +58,23 @@ public class EmailValidation {
         }
         return matchFound;
     }
-
+    /*
+    Use case 5: Validate optional part 2 of email- Name of Top level Domain
+    */
+    public static boolean validateTopLevelDomainEmail(String test_email_id){
+        Pattern pattern = Pattern.compile("[a-z0-9]{3,}[._+-]?[a-zA-Z0-9]+[@][a-z]{3,}[.][a-z]+");
+        Matcher matcher = pattern.matcher(test_email_id);
+        Boolean matchFound = matcher.matches();
+        if (matchFound){
+            System.out.println("Correct Email.");
+        }else {
+            System.out.println("Incorrect Email.");
+        }
+        return matchFound;
+    }
     public static void main(String[] args) {
         System.out.println("Welcome to Bridgelabz!");
         System.out.println("Today we shall perform email ID validation.");
-        validateOptnlCharBefAtRate("abc_x@bridgelabz.co");
+        validateTopLevelDomainEmail("abc_@bridgelabz.co");
     }
 }
