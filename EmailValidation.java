@@ -44,10 +44,24 @@ public class EmailValidation {
         }
         return matchFound;
     }
+    /*
+    Use case 4: Validate optional part 1 of email- Special characters and alphanumeric before @
+    */
+    public static boolean validateOptnlCharBefAtRate(String test_email_id){
+        Pattern pattern = Pattern.compile("[a-z]{3,}[._+-]*[a-zA-Z0-9]*[@][b][r][i][d][g][e][l][a][b][z][.][c][o][a-zA-Z~!@#$%^&*().]*");
+        Matcher matcher = pattern.matcher(test_email_id);
+        Boolean matchFound = matcher.matches();
+        if (matchFound){
+            System.out.println("Correct Email.");
+        }else {
+            System.out.println("Incorrect Email.");
+        }
+        return matchFound;
+    }
 
     public static void main(String[] args) {
         System.out.println("Welcome to Bridgelabz!");
         System.out.println("Today we shall perform email ID validation.");
-        validateCharAfterDomain("abc@bridgelabz.co");
+        validateOptnlCharBefAtRate("abc_x@bridgelabz.co");
     }
 }
